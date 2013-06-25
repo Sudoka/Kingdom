@@ -1,22 +1,14 @@
-#include <iostream>
+#include "Kingdom.h"
 
-using namespace std;
+// enum { front_line, middle_of_field, back_rank };
 
- enum { front_line, middle_of_field, back_rank };
+Warrior::Warrior():warrior_pos(1) {}
 
-class Warrior
-{
-public:
-	Warrior():warrior_pos(1) {}			// do I need this constructor?
-	Warrior(int pos):warrior_pos(pos) {};
-	virtual ~Warrior() {};				
-	void setWarriorPosition( int pos ); 
-	int getWarriorPosition() const { return warrior_pos; }
-	int getPosition(int pos);
-	virtual void display() const = 0;
-private:
-	int warrior_pos;
-};
+Warrior::Warrior(int pos):warrior_pos(pos) {}
+
+int Warrior::getWarriorPosition() const {
+	return warrior_pos;
+}
 
 void Warrior::display() const { cout << "\nWarrior Position: " << warrior_pos << endl; }
 

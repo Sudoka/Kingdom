@@ -1,25 +1,19 @@
-#include <iostream>
-#include "WarriorNode.cpp"
+#include "Kingdom.h"
 
-using namespace std;
+WarriorFormation::WarriorFormation():
+	pHead(0), 
+	count(0) 
+	{}
 
-class WarriorFormation 
-{
-public:
-	WarriorFormation();
-	~WarriorFormation();
-	Warrior* Find(int &position, int warrior_position ) const;
-	int getCount() const { return count; }
-	Warrior* getFirst() const;
-	void Insert( Warrior* );
-	void Iterate() const;
-	Warrior* operator[](int) const;
-private:
-	WarriorNode* pHead;
-	int count;
-};
+WarriorFormation::~WarriorFormation() {
+	delete pHead;
+}
 
-Warrior* WarriorFormation::Find(int &position, int warrior_position) const {
+int WarriorFormation::getCount() const {
+	return count;
+}
+
+Warrior* WarriorFormation::find(int &position, int warrior_position) const {
 	WarriorNode* pNode = 0;
 	for ( pNode = pHead, position = 0; pNode != NULL; pNode = pNode->getNext(), position++ ) {
 		if ( pNode->getWarriorType()->getWarriorPosition() == warrior_position ) {
@@ -34,10 +28,6 @@ Warrior* WarriorFormation::Find(int &position, int warrior_position) const {
 		}
 	}
 
-int WarriorFormation::getCount() const {
-	return count;
-}
-
 Warrior* WarriorFormation::getFirst() const {
 	if (pHead) {
 		return pHead->getWarriorType();
@@ -47,13 +37,13 @@ Warrior* WarriorFormation::getFirst() const {
 	}
 }
 
-void WarriorFormation::Insert( Warrior* pw ) {
-	WarriorNode *pNode = new WarriorNode( pw );
+void WarriorFormation::insert( Warrior* pw ) {
+	WarriorNode* pNode = new WarriorNode( pw );
 	int new_pos = pw->getWarriorPosition();
 	count++;
 
 	if (!pHead) {
-		pHead == pNode;
+		pHead = pNode;
 		return;
 	}
 		
@@ -83,7 +73,7 @@ void WarriorFormation::Insert( Warrior* pw ) {
 	} // close the for loop
 } // close insert
 
-void WarriorFormation::Iterate() const {
+void WarriorFormation::iterate() const {
 	if (!pHead) {
 		return;
 	}
