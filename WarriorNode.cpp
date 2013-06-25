@@ -11,7 +11,6 @@ public:
 	WarriorNode* getNext() const;
 	void setNext(WarriorNode *pn) { next = pn; }
 	Warrior* getWarriorType() const;
-	void setWarriorType( Warrior *pt );
 private:
 	Warrior *type;
 	WarriorNode *next;
@@ -37,8 +36,4 @@ Warrior* WarriorNode::getWarriorType() const {
 	else {
 		return NULL;
 	}
-}
-
-void WarriorNode::setWarriorType( Warrior *pt ) {
-	type = pt;
 }

@@ -8,9 +8,9 @@ class Warrior
 {
 public:
 	Warrior():warrior_pos(1) {}			// do I need this constructor?
-	Warrior(int type):warrior_pos(type) {};
+	Warrior(int pos):warrior_pos(pos) {};
 	virtual ~Warrior() {};				
-	void setWarriorPosition( int warriorType ); 
+	void setWarriorPosition( int pos ); 
 	int getWarriorPosition() const { return warrior_pos; }
 	int getPosition(int pos);
 	virtual void display() const = 0;
