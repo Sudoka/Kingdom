@@ -1,19 +1,24 @@
-#include <iostream>
-#include "Warrior.cpp"
+#include "Kingdom.h"
 
-using namespace std;
+Spearman::Spearman():
+	battles_won(0) 
+	{}
 
-class Spearman : public Warrior
-{
-public:
-	Spearman():battles_won(0) {}
-	Spearman( int bw, int pos ):Warrior(pos),battles_won(0) {}
-	int getBattlesWon() const { return battles_won; }
-	void setBattlesWon() { battles_won; }
-	virtual void display() const { 
-		Warrior::display();	
+Spearman::Spearman( int battles_won, int pos ):
+	battles_won(battles_won),
+	Warrior(pos) 
+	{}
+// why can't I set Warrior(pos) inside the brackets?
+
+int Spearman::getBattlesWon() const {
+	return battles_won;
+}
+
+void Spearman::setBattlesWon(int battles) {
+	this->battles_won = battles;
+}
+
+void Spearman::display() const {
+		Warrior::display();
 		cout << "Spearmen: battles won = " << battles_won << endl; 
-	}
-private:
-	int battles_won;
-};
+}

@@ -1,28 +1,19 @@
-#include <iostream>
-#include "Warrior.cpp"
+#include "Kingdom.h"
 
-using namespace std;
-
-class WarriorNode
-{
-public:
-	WarriorNode(Warrior *);
-	~WarriorNode();
-	WarriorNode* getNext() const;
-	void setNext(WarriorNode *pn) { next = pn; }
-	Warrior* getWarriorType() const;
-private:
-	Warrior *type;
-	WarriorNode *next;
-};
-
-WarriorNode::WarriorNode(Warrior *wp):type(wp),next(0) {}
+WarriorNode::WarriorNode(Warrior* wp):
+	type(wp),
+	next(0) 
+	{}
 
 WarriorNode::~WarriorNode() {
 	delete type;
 	type = NULL;
 	delete next;
 	next = NULL;
+}
+
+void WarriorNode::setNext(WarriorNode* pn) {
+	next = pn;
 }
 
 WarriorNode* WarriorNode::getNext() const {
