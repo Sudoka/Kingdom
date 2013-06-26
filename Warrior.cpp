@@ -1,6 +1,6 @@
 #include "Kingdom.h"
 
-// enum { front_line, middle_of_field, back_rank };
+enum warrior_pos { frontLine = 1, middle, backRank };
 
 Warrior::Warrior():warrior_pos(1) {}
 
@@ -10,19 +10,21 @@ int Warrior::getWarriorPosition() const {
 	return warrior_pos;
 }
 
-void Warrior::display() const { cout << "\nWarrior Position: " << warrior_pos << endl; }
 
-/*
-int Warrior::getPosition( int pos ) {
-	if ( pos == 0 ) {
-		return front_line;
+void Warrior::display() const { cout << "\nWarrior Position: " << this->getWarriorPositionName() << endl; }
+
+char* Warrior::getWarriorPositionName() const {
+	if ( warrior_pos == frontLine ) {
+		char f[MAX] = "front line";
+		return f;
 	}
-	else if ( pos == 1 ) {
-		return middle_of_field;
+	else if ( warrior_pos == middle ) {
+		char m[MAX] = "middle rank";
+		return m;
 	}
 	else {
-		return back_rank;
+		char b[MAX] = "back rank";
+		return b;
 	}
 	return 0;
 }
-*/

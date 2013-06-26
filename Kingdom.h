@@ -4,13 +4,16 @@
 #include <iostream>
 using namespace std;
 
+#define MAX 1024
+
 class Warrior
 {
 public:
 	Warrior();	// do I need this constructor?
 	Warrior(int pos);
-	virtual ~Warrior() {};				
+	virtual ~Warrior() {};	
 	int getWarriorPosition() const;
+	char* getWarriorPositionName() const;
 	virtual void display() const = 0;
 private:
 	int warrior_pos;
