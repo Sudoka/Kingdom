@@ -69,7 +69,7 @@ void WarriorFormation::insert( Warrior* pw ) {
 			pNode->setNext(pNext);
 			return;
 		}
-		pCurrent->getNext();
+		pCurrent = pNext;
 	} // close the for loop
 } // close insert
 

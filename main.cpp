@@ -34,17 +34,17 @@ int main()
 				if (position == 1) {
 					cout << "\nPlease enter the number of battles that these archers have won: ";
 					cin >> bWon;
-					pw = (Warrior*) new Archer( bWon, front ); 
+					pw = new Archer( bWon, front ); 
 				}
 				else if (position == 2) {
 					cout << "\nPlease enter the number of battles that these archers have won: ";
 					cin >> bWon;
-					pw = (Warrior*) new Archer( bWon, middle );
+					pw = new Archer( bWon, middle );
 				}
 				else {
 					cout << "\nPlease enter the number of battles that these archers have won: ";
 					cin >> bWon;
-					pw = (Warrior*) new Archer( bWon, back);
+					pw = new Archer( bWon, back );
 				}
 				wf.insert(pw);
 			} // close while
@@ -62,17 +62,17 @@ int main()
 				if (position == 1) {
 					cout << "\nPlease enter the number of battles that these knights have won: ";
 					cin >> bWon;
-					pw = (Warrior*) new Knight( bWon, front ); 
+					pw = new Knight( bWon, front ); 
 				}
 				else if (position == 2) {
 					cout << "\nPlease enter the number of battles that these knights have won: ";
 					cin >> bWon;
-					pw = (Warrior*) new Knight( bWon, middle );
+					pw = new Knight( bWon, middle );
 				}
 				else {
 					cout << "\nPlease enter the number of battles that these knights have won: ";
 					cin >> bWon;
-					pw = (Warrior*) new Knight( bWon, back);
+					pw = new Knight( bWon, back );
 				}
 				wf.insert(pw);
 			} // close while
@@ -90,17 +90,17 @@ int main()
 				if (position == 1) {
 					cout << "\nPlease enter the number of battles that these spearmen have won: ";
 					cin >> bWon;
-					pw = (Warrior*) new Spearman( bWon, front ); 
+					pw = new Spearman( bWon, front ); 
 				}
 				else if (position == 2) {
 					cout << "\nPlease enter the number of battles that these spearmen have won: ";
 					cin >> bWon;
-					pw = (Warrior*) new Spearman( bWon, middle );
+					pw = new Spearman( bWon, middle );
 				}
 				else {
 					cout << "\nPlease enter the number of battles that these spearmen have won: ";
 					cin >> bWon;
-					pw = (Warrior*) new Spearman( bWon, back);
+					pw = new Spearman( bWon, back );
 				}
 				wf.insert(pw);
 			} // close while
