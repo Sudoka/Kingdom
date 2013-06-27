@@ -6,6 +6,11 @@ using namespace std;
 
 #define MAX 1024
 
+/*********************************************************
+* This class is an abstract class from which other classes
+* inherit.
+*********************************************************/
+
 class Warrior
 {
 public:
@@ -14,7 +19,7 @@ public:
 	virtual ~Warrior() {};	
 	int getWarriorPosition() const;
 	char* getWarriorPositionName() const;
-	virtual void display() const = 0;
+	virtual void display() const = 0; // must be overriden
 private:
 	int warrior_pos;
 };
@@ -80,11 +85,28 @@ public:
 	int getCount() const;
 	Warrior* getFirst() const;
 	void insert( Warrior* );
-	void iterate() const;
+	void iterate(void (Warrior::*f)()const) const;
 	Warrior* operator[](int) const;
 private:
 	WarriorNode* pHead;
 	int count;
+};
+
+/*****************************************************************
+* This class does not allow duplicates, is an unordered 
+* collection of warriors, and allows access by position.
+*****************************************************************/
+
+class NonDupWarrior
+{
+public:
+	void insert(Warrior* );
+	int exists(int warrior_pos);
+	Warrior* get(int warrior_pos);
+//	operator+(const NonDupWarrior&);
+	void showAll();
+private:
+	WarriorFormation warForm;
 };
 
 #endif

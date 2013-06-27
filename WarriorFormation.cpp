@@ -13,6 +13,8 @@ int WarriorFormation::getCount() const {
 	return count;
 }
 
+/* Returns: warrior at position or NULL */
+
 Warrior* WarriorFormation::find(int &position, int warrior_position) const {
 	WarriorNode* pNode = 0;
 	for ( pNode = pHead, position = 0; pNode != NULL; pNode = pNode->getNext(), position++ ) {
@@ -73,14 +75,14 @@ void WarriorFormation::insert( Warrior* pw ) {
 	} // close the for loop
 } // close insert
 
-void WarriorFormation::iterate() const {
+void WarriorFormation::iterate(void (Warrior::*f)() const) const {
 	if (!pHead) {
 		return;
 	}
 
 	WarriorNode* tNode = pHead;
 	do {
-		tNode->getWarriorType()->display();
+		( tNode->getWarriorType()->*f ) ();
 	} while ( tNode = tNode->getNext() );
 }
 

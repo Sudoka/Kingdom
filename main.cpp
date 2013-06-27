@@ -3,7 +3,7 @@
 
 int main()
 {
-	WarriorFormation wf;
+	NonDupWarrior wf;
 	Warrior* pw;
 	int choice;
 	int position;
@@ -108,7 +108,7 @@ int main()
 
 	} // close outer while
 
-	wf.iterate();
+	wf.showAll();
 	
 	int exit;
 	cout << "Please enter any key to exit...";
