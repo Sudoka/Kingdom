@@ -19,9 +19,9 @@ void NonDupWarrior::insert(Warrior* pw) {
 }
 
 int NonDupWarrior::exists(int num) {
-	int start = 0;
+	int start;
 	warForm.find(start, num);
-	return start; // why not return warForm.find(start, num); ?
+	return start;
 }
 
 Warrior* NonDupWarrior::get(int pos) {

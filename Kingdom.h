@@ -6,6 +6,8 @@ using namespace std;
 
 #define MAX 1024
 
+#define DEFAULT_SIZE 3
+
 /*********************************************************
 * This class is an abstract class from which other classes
 * inherit.
@@ -20,7 +22,7 @@ public:
 	int getWarriorPosition() const;
 	char* getWarriorPositionName() const;
 	virtual void display() const = 0; // must be overriden
-private:
+protected:
 	int warrior_pos;
 };
 
@@ -100,13 +102,36 @@ private:
 class NonDupWarrior
 {
 public:
-	void insert(Warrior* );
-	int exists(int warrior_pos);
-	Warrior* get(int warrior_pos);
+	void insert( Warrior* );
+	int exists( int warrior_pos );
+	Warrior* get( int warrior_pos );
 //	operator+(const NonDupWarrior&);
 	void showAll();
 private:
 	WarriorFormation warForm;
+};
+
+template <class T>
+class Array
+{
+public:
+	Array( int size = DEFAULT_SIZE );
+	Array( const Array& );
+	~Array();
+
+	T& operator[] ( int index );
+	const T& operator[] ( int index ) const;
+	Array& operator= ( const Array& );
+
+	int getSize() const;
+	int getType() const;
+
+	friend ostream& operator<< ( ostream& output, const Array<T>& arr );
+
+private:
+	T* arr;
+	int size;
+	int type;
 };
 
 #endif

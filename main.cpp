@@ -3,11 +3,11 @@
 
 int main()
 {
-	NonDupWarrior wf;
+	NonDupWarrior ndw;
 	Warrior* pw;
 	int choice;
 	int position;
-
+	
 	while(1) {
 		int archers = 1, knights = 2, spearman = 3;
 		cout << "\n\n********************************************" << endl;
@@ -46,7 +46,7 @@ int main()
 					cin >> bWon;
 					pw = new Archer( bWon, back );
 				}
-				wf.insert(pw);
+				ndw.insert(pw);
 			} // close while
 		} // close if
 		else if (choice == knights) {
@@ -74,7 +74,7 @@ int main()
 					cin >> bWon;
 					pw = new Knight( bWon, back );
 				}
-				wf.insert(pw);
+				ndw.insert(pw);
 			} // close while
 		} // close else if
 		else {
@@ -102,13 +102,12 @@ int main()
 					cin >> bWon;
 					pw = new Spearman( bWon, back );
 				}
-				wf.insert(pw);
+				ndw.insert(pw);
 			} // close while
 		} // close else 
-
 	} // close outer while
 
-	wf.showAll();
+	ndw.showAll();
 	
 	int exit;
 	cout << "Please enter any key to exit...";
