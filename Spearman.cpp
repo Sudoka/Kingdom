@@ -4,11 +4,14 @@ Spearman::Spearman():
 	battles_won(0) 
 	{}
 
-Spearman::Spearman( int battles_won, int pos ):
-	battles_won(battles_won),
-	Warrior(pos) 
-	{}
-// why can't I set Warrior(pos) inside the brackets?
+Spearman::Spearman( int battles_won, int pos ) {
+	if ( battles_won < 0 ) {
+		throw battlesError();
+	}
+
+	this->battles_won = battles_won;
+	Warrior::warrior_pos = pos;
+}
 
 int Spearman::getBattlesWon() const {
 	return battles_won;

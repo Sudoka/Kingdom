@@ -8,10 +8,12 @@ using namespace std;
 
 #define DEFAULT_SIZE 3
 
-/*********************************************************
+/*
+===========================================================
 * This class is an abstract class from which other classes
 * inherit.
-*********************************************************/
+===========================================================
+*/
 
 class Warrior
 {
@@ -34,7 +36,7 @@ public:
 	int getBattlesWon() const;
 	void setBattlesWon(int b);
 	virtual void display() const;
-	
+	class battlesError {};
 private:
 	int battles_won;
 };
@@ -47,7 +49,7 @@ public:
 	int getBattlesWon() const;
 	void setBattlesWon(int b);
 	virtual void display() const;
-	
+	class battlesError {};
 private:
 	int battles_won;
 };
@@ -60,7 +62,7 @@ public:
 	int getBattlesWon() const;
 	void setBattlesWon(int b);
 	virtual void display() const;
-	
+	class battlesError {};
 private:
 	int battles_won;
 };
@@ -89,15 +91,29 @@ public:
 	void insert( Warrior* );
 	void iterate(void (Warrior::*f)()const) const;
 	Warrior* operator[](int) const;
+
+/* exception classes
+class Error
+{
+	void Display() const { cout << "Please enter numbers form one to three." << endl; }
+};
+
+class TooBig : public Error {};
+class TooSmall : public Error {};
+*/
+
 private:
 	WarriorNode* pHead;
 	int count;
 };
 
-/*****************************************************************
-* This class does not allow duplicates, is an unordered 
-* collection of warriors, and allows access by position.
-*****************************************************************/
+
+/*
+=======================================================
+ This class does not allow duplicates, is an unordered 
+ collection of warriors, and allows access by position.
+ ======================================================
+ */
 
 class NonDupWarrior
 {
@@ -133,5 +149,18 @@ private:
 	int size;
 	int type;
 };
+
+// exception classes
+class Error
+{
+public:
+	void Display() { cout << "Please enter numbers form one to three." << endl; }
+};
+
+/*
+class TooBig : public Error {};
+class TooSmall : public Error {};
+class NotNumber : public Error {};
+*/
 
 #endif
