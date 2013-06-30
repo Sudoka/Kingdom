@@ -42,6 +42,15 @@ Warrior* WarriorFormation::getFirst() const {
 void WarriorFormation::insert( Warrior* pw ) {
 	WarriorNode* pNode = new WarriorNode( pw );
 	int new_pos = pw->getWarriorPosition();
+
+/*
+	if ( new_pos < 0 ) {
+		throw TooSmall();
+	}
+	if ( new_pos > 3 ) {
+		throw TooBig();
+	}
+*/
 	count++;
 
 	if (!pHead) {
